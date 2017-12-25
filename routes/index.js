@@ -20,6 +20,15 @@ router.post('/basket', function(req, res){
 	console.log(req.body.id, req.body.owner);
 });
 
+router.get('/product', function(req, res) {
+	if(req.isAuthenticated()){
+		let type = req.query.type;
+		let temp = req.user.usercoms.filter(el => el.categ === type);
+		res.send({data: temp});
+	}else{
+		res.send({data: "unreg"})	
+	}
+});
 
 function ensureAuthenticated(req, res, next){
 	if(req.isAuthenticated()){
