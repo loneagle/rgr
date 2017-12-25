@@ -1,0 +1,51 @@
+<body>
+  <!-- <center><h3>ЯРІК РОБИ КУРСАЧ</h3></center> -->
+  {{#if user}}
+    <a href="/work/main">Робочий кабінет</a>
+    <a href="/work/basket">Кошик</a>
+  {{/if}}
+
+  <center><h3>KPI-sale</h3></center>
+  <div>
+        <div style = "position:relative left:20px">
+          <ul class="nav nav-pills center" style = "text-align:center">
+            <li><a href="/index">Послуги</a></li>
+            <li><a href="/index">Канцелярія</a></li>
+            <li><a href="/index">Б/в техніка</a></li>
+            <li><a href="/index">Інструменти та обладнання</a></li>
+            <li><a href="/index">Одяг</a></li>
+            <li><a href="/index">Оренда</a></li>   
+            <li><a href="/index">Віддам даром</a></li>         
+            <li><a href="/index">Інше</a></li>         
+      </div>
+  </div>
+  {{#if users}}
+    <table align="center" border="1">
+    <tr>
+      <th>Назва</th>
+      <th>Категорія</th>
+      <th>Ціна</th>
+      <th>Власник</th>
+      <th>В кошик</th>  
+    </tr>
+      {{#each users}}
+        {{#each usercoms}}
+          <tr>
+            <td>{{comname}}</td>
+            <td>{{categ}}</td>
+            <td>{{price}}</td>
+            <td>{{username}}</td>
+            <td><form method="post" action="/work/basket"><button name="button" type="submit" value="{{idcom}}" class="btn btn-default">=</button></form></td> 
+          </tr>
+        {{/each}}
+      {{/each}}
+   </table>
+
+  {{else}}
+    <p><b>Нажаль ніхто ще не додав товарів</b></p>
+  {{/if}}
+
+<form method="post" align="center" action="/index">
+  <button type="submit" class="btn btn-default">Оновити</button>
+</form>
+</body>

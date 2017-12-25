@@ -1,0 +1,18 @@
+<h2 class="page-header">Профіль</h2>
+<h2>Зміна даних профілю</h2>
+<div>Ви можете залишати поля пустими</div>
+<form method="post" action="/users/profile">
+  <div class="form-group">
+    <label>Новий логін</label>
+    <input type="text" class="form-control" placeholder="Логін" name="username">
+  </div>
+  <div class="form-group">
+    <label>Новий пароль</label>
+    <input type="password" class="form-control" placeholder="Пароль" name="password">
+  </div>
+  <div class="form-group">
+    <label>Перевірка паролю</label>
+    <input type="password" class="form-control" placeholder="Перевірка паролю" name="password2">
+  </div>
+  <button type="submit" class="btn btn-default">Підтвердити</button>
+</form>

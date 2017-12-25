@@ -1,0 +1,18 @@
+<h2 class="page-header">Вхід</h2>
+{{#if error_msg}}
+    <dir class="alert alert-danger">{{error_msg}}</dir>
+{{/if}}
+{{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+{{/if}}
+<form method="post" action="/users/login">
+  <div class="form-group">
+    <label>Логін</label>
+    <input type="text" class="form-control" name="username" placeholder="Логін">
+  </div>
+  <div class="form-group">
+    <label>Пароль</label>
+    <input type="password" class="form-control" name="password" placeholder="Пароль">
+  </div>
+  <button type="submit" class="btn btn-default">Ввійти</button>
+</form>

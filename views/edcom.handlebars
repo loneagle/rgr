@@ -1,0 +1,49 @@
+<script src="../easy-autocomplete/dist/jquery.easy-autocomplete.min.js"></script>
+<!-- CSS file -->
+<link rel="stylesheet" href="../easy-autocomplete/dist/easy-autocomplete.min.css">
+<!-- Additional CSS Themes file - not required-->
+<link rel="stylesheet" href="../easy-autocomplete/dist/easy-autocomplete.themes.min.css">
+
+<h4 class="page-header">Редагування</h4>
+<!-- <input name = "placename"  type="text" value="{{placename}}" disabled> -->
+
+{{#if errors}}
+      {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+      {{/each}}
+{{/if}}
+
+<form method="post" action="/work/edcom1">
+  <div class="form-group">
+    <label>Назва</label>
+    <input type="text" name="comname" class="form-control">
+  </div>
+  <div class="form-group">
+   <label>Категорія</label>
+    <input name = "categ" id="provider-json" class="form-control"/>
+     <script type="text/javascript">
+        var options = {
+           url: "../json/list.json",
+            getValue: "name",
+             list: {
+                 match: {
+                      enabled: true
+                      }
+                   }
+                 };
+                 $("#provider-json").easyAutocomplete(options);
+     </script>
+  </div>
+
+  <div class="form-group">
+    <label>Ціна в грн</label>
+    <input type="text" name="price" class="form-control">
+  </div>
+
+  <div class="form-group">
+    <label>Про товар</label>
+    <input type="text" name="aboutcom" class="form-control">
+  </div>
+
+  <button type="submit" name="button" value="{{idcom}}" class="btn btn-default">Редагувати</button>
+</form>

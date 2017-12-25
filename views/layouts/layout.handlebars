@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<script src="../jquery/dist/jquery.min.js"></script>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="http://bootstrap-3.ru/assets/ico/favicon.ico">
+
+    <title>{{title}}</title>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!-- <link href="./main_files/jumbotron.css" rel="stylesheet"> -->
+
+  </head>
+
+  <body scroll="yes">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Навігація</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/index">KPI-sales</a>
+        </div>
+        <div class="navbar-form navbar-right">
+         {{#if user}}
+          <i style="color:#0000ff">Ви ввійшли як {{user.username}}</i>
+          <a href="/users/logout">
+            <button type="button" class="btn btn-success">Вихід</button>
+          </a>
+        {{else}}
+          <div class="navbar-collapse collapse">
+              <a href="/users/login">
+              <button type="button" class="btn btn-success">Ввійти</button>
+              </a>
+              <a href="/users/register">
+                <button type="button" class="btn btn-primary">Зареєструватися</button>
+              </a>
+          </div>
+        {{/if}}
+      </div>
+      </div>
+    </div>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        {{{body}}}
+      </div>
+    </div>
+
+  <div>
+      <footer>
+        <h6>© by kozaks 2017</h6>
+      </footer>
+    </div>
+
+</body></html>

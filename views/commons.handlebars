@@ -1,0 +1,36 @@
+<div><a href="/work/addcom">Додати товар</a>
+  
+<!-- -->
+{{#if commons}}
+  <table border="3">
+    <caption align="center">Ваші товари/послуги</caption>
+  <tr>
+    <th>Назва</th>
+    <th>Категорія</th>
+    <th>Ціна</th>
+    <th>Відкрити/закрити</th>
+    <th>Ред.</th>
+    <th>Вид.</th>
+   </tr>
+
+{{#each commons}}
+  <div class="ping">
+    <tr>
+      <td>{{comname}}</td>
+      <td>{{categ}}</td>
+      <td>{{price}}</td>
+      <td></td>
+      <td><form method="post" action="/work/edcom"><button name="button" type="submit" value="{{id}}" class="btn btn-default">=</button></form></td>
+      <td><form method="post" action="/work/delcom"><button name="button" type="submit" value="{{id}}" class="btn btn-default">-</button></form></td>
+    </tr>
+  </div>
+  {{/each}}
+
+  </table>
+{{else}}
+<p><b>У вас немає товарів</b></p>
+{{/if}}
+
+<form method="post" action="/work/commons">
+  <button type="submit" class="btn btn-default">Оновити</button>
+</form>
