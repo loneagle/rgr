@@ -120,14 +120,14 @@ passport.deserializeUser(function(id, done) {
 });
 
 router.post('/login',
-  passport.authenticate('local', {successRedirect:'/index', failureRedirect:'/users/login',failureFlash: true}),
+  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
   });
 
 router.get('/logout', function(req, res){
 	req.logout();
-	res.redirect('/index');
+	res.redirect('/');
 });
 
 module.exports = router;

@@ -12,7 +12,7 @@ const mongo = require('mongodb');
 var mongoose = require('mongoose');
 var User = require('./models/user');
 
-mongoose.connect('mongodb://localhost/forpoliv');
+mongoose.connect('mongodb://localhost/shop');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
@@ -79,7 +79,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.get('/index', function (req, res) {
+app.get('/', function (req, res) {
   User.find({}, function(err, users) {
     var userMap = {};
     let i = 0;
@@ -87,11 +87,11 @@ app.get('/index', function (req, res) {
       userMap[i] = user;
       i++;
     }); 
-    res.render('index', {title:'Головна',users:userMap});
+    res.render('', {title:'Головна',users:userMap, isInit:req.isAuthenticated()});
   });
 });
 
-app.post('/index', function (req, res) {
+app.post('/', function (req, res) {
   User.find({}, function(err, users) {
     var userMap = {};
     let i = 0;
