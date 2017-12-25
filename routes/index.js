@@ -9,7 +9,7 @@ router.get('/', ensureAuthenticated, function(req, res){
 
 router.get('/basket', function(req, res){
     if (req.isAuthenticated()) {
-  		res.render('basket', {title:'Моя корзина'});
+  		res.render('basket', {title:'Мій кошик'});
     } else {
         req.flash('error_msg', 'Вхід не виконано');
         res.redirect('/users/login');

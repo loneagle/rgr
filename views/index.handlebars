@@ -52,6 +52,30 @@
     <form method="post" align="center" action="/">
       <button type="submit" class="btn btn-default">Оновити</button>
     </form>
+  {{else}}
+    {{#if users}}
+      <table align="center" border="1">
+      <tr>
+        <th>Назва</th>
+        <th>Категорія</th>
+        <th>Ціна</th>
+        <th>Власник</th>
+      </tr>
+        {{#each users}}
+          {{#each usercoms}}
+            <tr>
+              <td>{{comname}}</td>
+              <td>{{categ}}</td>
+              <td>{{price}}</td>
+              <td>{{username}}</td>
+            </tr>
+          {{/each}}
+        {{/each}}
+     </table>
+    {{else}}
+      <p><b>Нажаль ніхто ще не додав товарів</b></p>
+    {{/if}}
+
   {{/if}}
 
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -65,12 +89,6 @@
     axios.post('/basket', {
       id: id,
       owner: owner
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
     });
   }
 </script>
