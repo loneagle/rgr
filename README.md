@@ -11,7 +11,7 @@ This is a user login and registration app and functional our application using N
 ### Usage
 rgr requires [Node.js](https://nodejs.org/) v4+ to run.
 
-### Installation
+## Installation
 
 ## for UNIX OS
 cd rgr/
@@ -22,7 +22,7 @@ install nodejs shell https://nodejs.org/uk/download/
 mongo db https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/
 read and run commands in your nodejs shell from install.sh, that have #
 
-### Gulp
+## Gulp
 gulp minify
 
 also you can change file what you pack in gulpfile.js
