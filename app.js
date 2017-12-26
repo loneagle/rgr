@@ -10,12 +10,23 @@ const passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 const mongo = require('mongodb');
 var mongoose = require('mongoose');
+var backoff = require('backoff');
 var User = require('./models/user');
 
-mongoose.connect('mongodb://localhost/shop');
-var db = mongoose.connection;
+var expBackoff = backoff.exponential({
+    randomisationFactor: 0,
+    initialDelay: 500,
+    maxDelay: 60000
+});
 
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+mongoose.connect('mongodb://localhost/shop');
+expBackoff.on('ready', function(number, delay) {
+    db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+    console.log(number + ' ' + delay + 'ms');
+    expBackoff();
+});
+
+// db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 var postTime = require('./models/time');
 var routes = require('./routes/index');
@@ -120,6 +131,7 @@ app.listen(app.get('port'), function(){
   console.log('Server started on port '+app.get('port'));
 });
 
+
 module.exports = {
   starting: function() {
     console.log('Server started');
@@ -137,3 +149,4 @@ module.exports = {
     }
   }
 };
+
