@@ -1,7 +1,7 @@
 Note: We sent this project in other repo because at this moment lab3 is not checked yet.
 
-# Node.js 
-This project about Internet-shop on nodejs and using mongo db
+## KPI-sale 
+This project about Internet-shop on node.js and using mongo db
 
 This is a user login and registration app and functional our application using Node.js, Express, Passport and Mongoose.
 
@@ -34,7 +34,5 @@ npm test
 
 ### Run: 
 in dir of this program type in terminal 
-nodemon
-or
-node app.js
+nodemon or node app.js
 and go to your browser and type 127.0.0.1:8888
