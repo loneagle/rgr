@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const Sync = require('sync');
 var postTime = require('../models/time');
 var User = require('../models/user');
 var shortid = require('shortid');

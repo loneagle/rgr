@@ -52,9 +52,7 @@ app.use(passport.session());
 // Express Validator
 app.use(expressValidator({
   errorFormatter: function(param, msg, value) {
-      var namespace = param.split('.')
-      , root    = namespace.shift()
-      , formParam = root;
+      var namespace = param.split('.'), root = namespace.shift(), formParam = root;
 
     while(namespace.length) {
       formParam += '[' + namespace.shift() + ']';
@@ -114,9 +112,28 @@ app.use(function (req, res, next) {
     show:false});
 });
 
+let port = 8888;
 // Set Port
-app.set('port', (process.env.PORT || 8888));
+app.set('port', (process.env.PORT || port));
 
 app.listen(app.get('port'), function(){
   console.log('Server started on port '+app.get('port'));
 });
+
+module.exports = {
+  starting: function() {
+    console.log('Server started');
+    return 'start';
+  },
+  addNumbers: function(a, b) {
+    return a + b;
+  },
+  port:function(){
+    return port;
+  },
+  myFunction:function(condition, callback){
+    if(condition){
+      callback();
+    }
+  }
+};
